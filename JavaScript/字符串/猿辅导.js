@@ -34,3 +34,24 @@ function treeBoard(tree) {
     }
     console.log([...left, ...bottom, ...mid, ...right]);
 }
+
+var firstUniqChar = function(s) {
+    if(!s) { return -1;}
+    
+    let hashMap = new Map()
+    for(let i = 0; i < s.length; i++) {
+        if(hashMap.has(s[i])) {
+            hashMap.set(s[i], 2);
+        } else {
+            hashMap.set(s[i], 1)
+        }
+    }
+    for(let i = 0; i < s.length; i++) {
+        if(hashMap.get(s[i]) === 1) {
+            return i;
+        }
+    }
+    return -1;
+};
+
+firstUniqChar("leetcode")
